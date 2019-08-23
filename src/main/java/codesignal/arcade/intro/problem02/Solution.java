@@ -1,4 +1,4 @@
-package arcade.intro.problem02;
+package codesignal.arcade.intro.problem02;
 
 public class Solution {
     int centuryFromYear(int year) {

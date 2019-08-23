@@ -1,4 +1,4 @@
-package arcade.intro.problem03;
+package codesignal.arcade.intro.problem03;
 
 public class Solution {
     boolean checkPalindrome(String inputString) {
