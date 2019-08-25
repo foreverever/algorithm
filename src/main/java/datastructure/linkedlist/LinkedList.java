@@ -5,7 +5,7 @@ public class LinkedList {
     private Node tail;
     private int size = 0;
 
-    public int getSize() {
+    public int size() {
         return size;
     }
 
@@ -34,15 +34,6 @@ public class LinkedList {
         size++;
     }
 
-    public Node getNode(int idx) {
-        if (idx >= size || idx < 0) throw new IndexOutOfBoundsException();
-        Node element = head;
-        for (int i = 0; i < idx; i++) {
-            element = element.next;
-        }
-        return element;
-    }
-
     public void add(int idx, String data) {
         if (idx == 0) addFirst(data);
         else if (idx == size) addLast(data);
@@ -53,6 +44,36 @@ public class LinkedList {
             beforeNode.next = newNode;
         }
         size++;
+    }
+
+    public Node getNode(int idx) {
+        if (idx >= size || idx < 0) throw new IndexOutOfBoundsException();
+        Node element = head;
+        for (int i = 0; i < idx; i++) {
+            element = element.next;
+        }
+        return element;
+    }
+
+    public String get(int idx) {
+        return getNode(idx).data;
+    }
+
+    public void deleteFirst() {
+        Node temp = head;
+        head = head.next;
+        temp.next = null;
+        size--;
+    }
+
+    public void deleteLast() {
+        if (size <= 1) tail = null;
+        else {
+            Node beforeNode = getNode(size - 2);
+            tail = beforeNode;
+            beforeNode.next = null;
+        }
+        size--;
     }
 
     public class Node {
@@ -67,7 +88,7 @@ public class LinkedList {
             return data;
         }
 
-        public Node getNext() {
+        Node getNext() {
             return next;
         }
     }

@@ -16,7 +16,7 @@ public class LinkedListTest {
 
     @Test
     public void addFirstOnlyOne() {
-        assertThat(linkedList.getSize()).isEqualTo(1);
+        assertThat(linkedList.size()).isEqualTo(1);
         assertThat(linkedList.getHead().getData()).isEqualTo("first");
         assertThat(linkedList.getHead().getNext()).isNull();
         assertThat(linkedList.getTail().getData()).isEqualTo("first");
@@ -26,7 +26,7 @@ public class LinkedListTest {
     @Test
     public void addFirst() {
         linkedList.addFirst("second");
-        assertThat(linkedList.getSize()).isEqualTo(2);
+        assertThat(linkedList.size()).isEqualTo(2);
         assertThat(linkedList.getHead().getData()).isEqualTo("second");
         assertThat(linkedList.getHead().getNext()).isNotNull();
         assertThat(linkedList.getHead().getNext().getData()).isEqualTo("first");
@@ -35,7 +35,7 @@ public class LinkedListTest {
 
     @Test
     public void addLastOnlyOne() {
-        assertThat(linkedList.getSize()).isEqualTo(1);
+        assertThat(linkedList.size()).isEqualTo(1);
         assertThat(linkedList.getTail().getData()).isEqualTo("first");
         assertThat(linkedList.getTail().getNext()).isNull();
         assertThat(linkedList.getHead().getData()).isEqualTo("first");
@@ -45,7 +45,7 @@ public class LinkedListTest {
     @Test
     public void addLast() {
         linkedList.addLast("second");
-        assertThat(linkedList.getSize()).isEqualTo(2);
+        assertThat(linkedList.size()).isEqualTo(2);
         assertThat(linkedList.getTail().getData()).isEqualTo("second");
         assertThat(linkedList.getHead().getData()).isEqualTo("first");
     }
@@ -64,7 +64,7 @@ public class LinkedListTest {
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void getNodeOverSizeIndex() {
-        linkedList.getNode(linkedList.getSize());
+        linkedList.getNode(linkedList.size());
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
@@ -78,5 +78,40 @@ public class LinkedListTest {
         linkedList.add(1,"mid");
         assertThat(linkedList.getNode(1).getData()).isEqualTo("mid");
         assertThat(linkedList.getTail().getData()).isEqualTo("second");
+    }
+
+    @Test
+    public void get() {
+        assertThat(linkedList.get(0)).isEqualTo("first");
+    }
+
+    @Test
+    public void deleteFirstOnlyOne() {
+        linkedList.deleteFirst();
+        assertThat(linkedList.size()).isEqualTo(0);
+    }
+
+    @Test
+    public void deleteFirst() {
+        linkedList.addLast("second");
+        linkedList.deleteFirst();
+        assertThat(linkedList.size()).isEqualTo(1);
+        assertThat(linkedList.getHead().getData()).isEqualTo("second");
+    }
+
+    @Test
+    public void deleteLastOnlyOne() {
+        linkedList.deleteLast();
+        assertThat(linkedList.size()).isEqualTo(0);
+        assertThat(linkedList.getTail()).isNull();
+    }
+
+    @Test
+    public void deleteLast() {
+        linkedList.addLast("second");
+        linkedList.deleteLast();
+        assertThat(linkedList.size()).isEqualTo(1);
+        assertThat(linkedList.getTail().getData()).isEqualTo("first");
+        assertThat(linkedList.getTail().getNext()).isNull();
     }
 }
