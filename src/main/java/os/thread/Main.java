@@ -8,8 +8,8 @@ public class Main {
         MusicPlayer forever = new MusicPlayer(1, musicBox);
         MusicPlayer park = new MusicPlayer(2, musicBox);
 
-        kim.start();
-        forever.start();
-        park.start();
+        kim.start();    //스레드 1 생성
+        forever.start();    //스레드 2 생성
+        park.start();   //스레드 3 생성
     }
 }
