@@ -1,4 +1,4 @@
-package codility.countingelement;
+package algorithm.codility.countingelement;
 
 import org.junit.Test;
 

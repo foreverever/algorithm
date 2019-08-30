@@ -1,4 +1,4 @@
-package codility.countingelement;
+package algorithm.codility.countingelement;
 
 public class MaxCounters {
     public int[] solution(int N, int[] A) {

@@ -1,4 +1,4 @@
-package codility.countingelement;
+package algorithm.codility.countingelement;
 
 public class FrogRiverOne {
     private boolean[] isDrop = new boolean[100001];
