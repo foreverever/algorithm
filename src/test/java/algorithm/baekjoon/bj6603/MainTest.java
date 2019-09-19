@@ -17,4 +17,11 @@ public class MainTest {
         String str = "0";
         assertThat(str.split(" ")[0]).isEqualTo("0");
     }
+
+    @Test
+    public void blankTest() {
+        String blank = "";
+        assertThat(blank).isEqualTo("");
+        assertThat(blank).isBlank();
+    }
 }
