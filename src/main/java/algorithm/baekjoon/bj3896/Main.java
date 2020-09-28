@@ -11,17 +11,17 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         //소수 구하기
-        boolean[] prime = getPrime();
+        boolean[] isPrime = getPrime();
 
         int tc = Integer.parseInt(bf.readLine());
 
         for (int i = 0; i < tc; i++) {
             int val = Integer.parseInt(bf.readLine());
-            if (prime[val]) {
+            if (isPrime[val]) {
                 System.out.println(0);
                 continue;
             }
-            System.out.println(getDistance(prime, val));
+            System.out.println(getDistance(isPrime, val));
         }
     }
 
